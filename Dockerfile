@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:2
 MAINTAINER Florin Stancu (stancu.florin23@gmail.com)
 
 ADD requirements.txt /
