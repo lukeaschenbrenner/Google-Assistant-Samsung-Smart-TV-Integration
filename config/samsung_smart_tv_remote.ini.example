@@ -1,6 +1,12 @@
 [SamsungSmartTV]
 name = Google Assistant Remote
 description = Google Home Integration with Samsung Smart TV
-host = 192.168.100.4
+
+# the ip of the tv
+host = add_your_tv_ip
+
+# 8001 for websocket 55000 for legacy
 port = 8001
+
+# websocket or legacy
 method = websocket
