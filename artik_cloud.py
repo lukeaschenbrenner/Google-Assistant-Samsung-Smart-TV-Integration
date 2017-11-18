@@ -5,7 +5,7 @@ import configparser, json, os, sys, logging
 import samsung_smart_tv_remote as remote
 
 log = logging.getLogger('artik_cloud.py')
-log.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 config = configparser.ConfigParser()
 config.read(os.path.join('config', 'artik_cloud.ini'))
