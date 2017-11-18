@@ -31,7 +31,7 @@ node {
 	stage('Docker Deploy') {
 		sh "${docker} stop ${service} || true"
 		sh "${docker} rm ${service} || true"
-		sh "${docker} run -d --name ${service} --net=host ${service}"
+		sh "${docker} run -d --name ${service} ${service}"
 	}
 	
 }
