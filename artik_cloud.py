@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 import paho.mqtt.client as mqtt
-import configparser, json
+import configparser, json, os
 import samsung_smart_tv_remote as remote
 
 config = configparser.ConfigParser()
-config.read('config/artik_cloud.ini')
+config.read(os.path.join('config', 'artik_cloud.ini'))
 
 def on_connect(client, userdata, flags, rc):
 	print "Connected with result code " + str(rc)

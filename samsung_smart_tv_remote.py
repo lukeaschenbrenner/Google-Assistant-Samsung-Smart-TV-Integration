@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import configparser, time, samsungctl
+import configparser, time, samsungctl, os
 
 config = configparser.ConfigParser()
-config.read('config/samsung_smart_tv_remote.ini')
+config.read(os.path.join('config', 'samsung_smart_tv_remote.ini'))
 
 config_remote = {
     "name": config['SamsungSmartTV']['name'],
