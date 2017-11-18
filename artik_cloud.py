@@ -8,13 +8,13 @@ config = configparser.ConfigParser()
 config.read(os.path.join('config', 'artik_cloud.ini'))
 
 def on_connect(client, userdata, flags, rc):
-	print "Connected with result code " + str(rc)
+	print "Connected with result code", str(rc)
 	client.subscribe("/v1.1/actions/" + config['ArtikCloud']['device_id'])
 
 def on_message(client, userdata, msg):
-	print msg.topic + " " + str(msg.payload)
+	print msg.topic, str(msg.payload)
 	message = json.loads(msg.payload)
-	actions = message['actions'];
+	actions = message['actions']
 	for action in actions:
 		if action['name'] == "changeChannel":
 			remote.change_channel(action['parameters']['channel'])
