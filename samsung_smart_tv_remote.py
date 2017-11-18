@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-import time, os, sys, logging
-import samsungctl, configparser
+import configparser, time, samsungctl, os
 
 config = configparser.ConfigParser()
 config.read(os.path.join('config', 'samsung_smart_tv_remote.ini'))
@@ -22,9 +21,9 @@ def change_channel(channel):
 			remote.control("KEY_" + digit)
 			time.sleep(0.5)
 		remote.control("KEY_ENTER")
-		logging.debug("The channel was changed to " + channel)
+		print "The channel was changed to", channel
 
 def turn_off_tv():
 	with samsungctl.Remote(config_remote) as remote:
-		logging.debug("The TV is shutting down")
+		print "The TV is shutting down"
 		remote.control("KEY_POWER")
