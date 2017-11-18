@@ -1,4 +1,4 @@
 configparser 
-pika
+paho-mqtt
 samsungctl
 websocket-client
