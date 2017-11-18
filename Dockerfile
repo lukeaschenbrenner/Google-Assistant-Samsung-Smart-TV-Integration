@@ -6,4 +6,4 @@ COPY *.py /
 COPY config/*.ini /config/
 
 RUN pip install -r requirements.txt
-CMD ["python", "./artik_cloud.py"]
+CMD ["python -u", "./artik_cloud.py"]
