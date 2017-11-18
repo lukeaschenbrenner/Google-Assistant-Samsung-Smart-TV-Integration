@@ -4,14 +4,13 @@ import paho.mqtt.client as mqtt
 import configparser, json, os, sys, logging
 import samsung_smart_tv_remote as remote
 
-log = logging.getLogger('artik_cloud.py')
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 config = configparser.ConfigParser()
 config.read(os.path.join('config', 'artik_cloud.ini'))
 
 def on_connect(client, userdata, flags, rc):
-	log.debug("Connected with result code " + str(rc))
+	logging.debug("Connected with result code " + str(rc))
 	client.subscribe("/v1.1/actions/" + config['ArtikCloud']['device_id'])
 
 def on_message(client, userdata, msg):
@@ -24,7 +23,7 @@ def on_message(client, userdata, msg):
 		elif action['name'] == "tvOff":
 			remote.turn_off_tv()
 		else:
-			print "There is no custom command implemented for", action['name']
+			logging.debug("There is no custom command implemented for " + action['name'])
 
 client = mqtt.Client()
 client.username_pw_set(config['ArtikCloud']['device_id'], config['ArtikCloud']['device_token'])
